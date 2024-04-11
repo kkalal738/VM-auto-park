@@ -6,6 +6,7 @@ def list_vm():
     proj = "your-project-id"
     output = subprocess.run(['gcloud', 'asset', 'search-all-resources', '--scope=projects/project-id', '--asset-types=compute.googleapis.com/Instance', '--read-mask=name,project,location,state','--query=labels.autostartstop:yes'], capture_output=True, text=True)
     
+    #Replace your project id in the above line for the project-id value
     # Check if the command was successful
     if output.returncode != 0:
         print("Error executing command:")
