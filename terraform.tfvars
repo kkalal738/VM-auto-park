@@ -1,0 +1,31 @@
+project_id           = "kartik-test-123"
+cf_region            = "us-east1"
+function_name        = "cf_tf_start_gce"
+function_description = "Cloud function gen2 trigger using terraform"
+runtime              = "python310"
+entry_point          = "start_vms_scheduler"
+build_environment_variables = {
+  #BUILD_CONFIG_TEST = "build_test"
+  #PROJECT_ID          = "kartik-test-123"
+  #BUCKET_NAME         = "gce_bucket2"
+}
+service_environment_variables = {
+  #SERVICE_CONFIG_TEST = "config_test"
+  PROJECT_ID          = "kartik-test-123"
+  BUCKET_NAME         = "gce_bucket2" 
+  FOLDER_ID           = "1093117536876"
+}
+bucket_name     = "gce_bucket2"
+bucket_location = "US"
+#purpose         = "autopark_implementation"
+source_archive_object = "gce_source_code/function.zip"
+max_instance_count = 2
+min_instance_count = 1
+available_memory   = "2Gi"
+available_cpu      = "4"
+timeout_seconds    = "3600"
+ingress_settings               = "ALLOW_ALL"
+all_traffic_on_latest_revision = true
+#create_new_service_account = 1 # Set to 1 to create a new service account
+# service_account_name = "gce-autopark-sa"
+existing_service_account_email          = "kartik-test-123@appspot.gserviceaccount.com"
